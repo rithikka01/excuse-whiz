@@ -134,12 +134,12 @@ export const EXCUSES: Bank = {
 export function pickExcuse(s: SituationId, p: PersonalityId, avoid?: string): string {
   const list = EXCUSES[s][p];
   const pool = list.length > 1 ? list.filter((e) => e !== avoid) : list;
-  return pool[Math.floor(Math.random() * pool.length)];
+  return pool[Math.floor(Math.random() * pool.length)] ?? list[0] ?? "";
 }
 
 export function randomPair(): { s: SituationId; p: PersonalityId } {
-  const s = SITUATIONS[Math.floor(Math.random() * SITUATIONS.length)].id;
-  const p = PERSONALITIES[Math.floor(Math.random() * PERSONALITIES.length)].id;
+  const s = SITUATIONS[Math.floor(Math.random() * SITUATIONS.length)]!.id;
+  const p = PERSONALITIES[Math.floor(Math.random() * PERSONALITIES.length)]!.id;
   return { s, p };
 }
 
