@@ -1,29 +1,29 @@
-# Welcome to your Lovable project
+# ExcuseGPT 🤡
 
-This project was built with [Lovable](https://lovable.dev).
+A playful excuse generator for everyday situations. Pick a situation and a personality, and get a ridiculous excuse instantly.
 
-## Build with Lovable
+## Features
+- 5 situations: Late to work, Missed a deadline, Cancelled plans, Skipped the gym, Forgot to reply
+- 4 personalities: Innocent, Corporate, Dramatic, Unhinged
+- Generate, Regenerate (avoids repeating the last excuse), Random, and Copy
+- Humorous rotating loading messages
+- Session history with per-item copy and clear
+- Responsive dark UI with purple gradients and neon yellow accents
+- Works offline from a built-in sample collection — no API key needed
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+## Tech stack
+React 19 · TypeScript · Tailwind CSS v4 · TanStack Start · Vite
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+## Project structure
+- `src/routes/index.tsx` — the app UI
+- `src/lib/excuses.ts` — situations, personalities, sample excuses, loading messages
+- `src/lib/excuse-service.ts` — `generateExcuse()` provider (swap this for a real AI API)
 
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+## Setup
+```bash
+bun install
+bun run dev
 ```
 
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+## Adding a real AI API later
+Replace the body of `generateExcuse()` in `src/lib/excuse-service.ts` with a call to a server function that queries your AI provider. Keep API keys server-side. The UI needs no changes.
